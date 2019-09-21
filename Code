@@ -1,0 +1,72 @@
+package quarterbackrating;
+
+import java.util.Scanner;
+
+public class QuarterBackRating {
+
+	public static void main(String[] args) {
+		
+		
+		System.out.println("Welcome to the Quarterback Rating Calculator");
+		Scanner keyb = new Scanner(System.in);
+		System.out.println("Please start by entering your QB's name: ");
+		String qbName = keyb.nextLine();
+		//Enter number of passing attempts
+		System.out.println("Enter " + qbName + "'s number of passing attempts: ");
+		double att = keyb.nextDouble();
+		
+		// Enter number of completed passes
+		System.out.println("Enter " + qbName + "'s  number of completed passes: ");
+		double comp = keyb.nextDouble();
+
+		// Enter passing yards
+		System.out.println("Enter " + qbName + "'s  total passing yards: ");
+		double yard = keyb.nextDouble();
+
+		// Enter number of passing touch-downs
+		System.out.println("Enter " + qbName + "'s number of passing touchdowns: ");
+		double td = keyb.nextDouble();
+
+		// Enter number of interceptions thrown
+		System.out.println("Enter " + qbName + "'s number of interceptions thrown: ");
+		double ints = keyb.nextDouble();
+		
+		keyb.close();
+
+		// Passer rating formula:
+		double a = ((comp/att) - .3) * 5;
+		if(a > 2.375) {
+			a = 2.375;
+		}
+		else if(a < 0) {
+			a = 0;
+		}
+		double b = ((yard/att) - 3) * .25;
+		if(b > 2.375) {
+			b = 2.375;
+		}
+		else if(b < 0) {
+			b = 0;
+		}
+		double c = (td/att) * 20;
+		if(c > 2.375) {
+			c = 2.375;
+		}
+		else if(c < 0) {
+			c = 0;
+		}
+		double d = 2.375 - ((ints/att) * 25);
+		if(d > 2.375) {
+			d = 2.375;
+		}
+		else if(d < 0) {
+			d = 0;
+		}
+		double pRating = ((a + b + c + d) / 6) * 100;
+		
+		System.out.print(qbName + " has a passer rating of ");
+		System.out.printf("%.1f",pRating);
+		
+		
+	}
+}
