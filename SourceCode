@@ -37,8 +37,11 @@ public class QuarterBackRating {
 		
 		keyb.close(); // Closing the scanner after inputting is complete.
 
-		// Passer rating formula
-		// There are four separate calculations done. We have used a, b, c, d to distinguish them.
+		/* Passer rating formula
+		 * There are four separate calculations done. We have used a, b, c, d to distinguish them.
+		 * If the values in a, b, c, d exceed 2.375, the program will simply take the number as 2.375
+		 */
+		 
 		// Calculation a
 		double a = ((comp/att) - .3) * 5;
 		if(a > 2.375) {
@@ -71,12 +74,13 @@ public class QuarterBackRating {
 		else if(d < 0) {
 			d = 0;
 		}
+		
 		// Finally, we use the four calculations to solve for the passer rating
 		double pRating = ((a + b + c + d) / 6) * 100;
+		
 		// This will print the passer rating and the name of the Quarterback.
 		System.out.print(qbName + " has a passer rating of ");
 		System.out.printf("%.1f",pRating);
-		
 		
 	}
 }
