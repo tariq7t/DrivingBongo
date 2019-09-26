@@ -7,4 +7,4 @@ It will ask the user for the following information:
 - Passing Touchdowns
 - Interception
 
-After taking the input, the program will use the input to solve four calculations. 
+After taking the input, the program will use the input to determine the passer rating. The rating cannot be less than 0.0 and higher than 158.3. 
