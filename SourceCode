@@ -1,4 +1,7 @@
-
+/*
+* Author: Tariq Islam
+* Date created: September 23, 2019
+*/
 
 import java.util.Scanner;
 
@@ -6,11 +9,12 @@ public class QuarterBackRating {
 
 	public static void main(String[] args) {
 		
-		
+		// Asking the user for inputs below:
 		System.out.println("Welcome to the Quarterback Rating Calculator");
 		Scanner keyb = new Scanner(System.in);
 		System.out.println("Please start by entering your QB's name: ");
 		String qbName = keyb.nextLine();
+		
 		//Enter number of passing attempts
 		System.out.println("Enter " + qbName + "'s number of passing attempts: ");
 		double att = keyb.nextDouble();
@@ -31,9 +35,11 @@ public class QuarterBackRating {
 		System.out.println("Enter " + qbName + "'s number of interceptions thrown: ");
 		double ints = keyb.nextDouble();
 		
-		keyb.close();
+		keyb.close(); // Closing the scanner after inputting is complete.
 
-		// Passer rating formula:
+		// Passer rating formula
+		// There are four separate calculations done. We have used a, b, c, d to distinguish them.
+		// Calculation a
 		double a = ((comp/att) - .3) * 5;
 		if(a > 2.375) {
 			a = 2.375;
@@ -41,6 +47,7 @@ public class QuarterBackRating {
 		else if(a < 0) {
 			a = 0;
 		}
+		// Calculation b
 		double b = ((yard/att) - 3) * .25;
 		if(b > 2.375) {
 			b = 2.375;
@@ -48,6 +55,7 @@ public class QuarterBackRating {
 		else if(b < 0) {
 			b = 0;
 		}
+		// Calculation c
 		double c = (td/att) * 20;
 		if(c > 2.375) {
 			c = 2.375;
@@ -55,6 +63,7 @@ public class QuarterBackRating {
 		else if(c < 0) {
 			c = 0;
 		}
+		// Calculation d
 		double d = 2.375 - ((ints/att) * 25);
 		if(d > 2.375) {
 			d = 2.375;
@@ -62,8 +71,9 @@ public class QuarterBackRating {
 		else if(d < 0) {
 			d = 0;
 		}
+		// Finally, we use the four calculations to solve for the passer rating
 		double pRating = ((a + b + c + d) / 6) * 100;
-		
+		// This will print the passer rating and the name of the Quarterback.
 		System.out.print(qbName + " has a passer rating of ");
 		System.out.printf("%.1f",pRating);
 		
