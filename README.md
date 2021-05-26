@@ -11,3 +11,4 @@ After taking the input, the program will use the input to determine the passer r
 
 Please refer to this webpage by the National Football League (NFL) for further explanation of the algorithm: 
 http://www.nfl.com/help/quarterbackratingformula
+
